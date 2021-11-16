@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<title>Alex Moran Portfolio</title>
+	<meta name="description" content="A Portfolio of my programming experience">
+	<link rel="stylesheet" href="../../css/main.css">
+	<link rel="stylesheet" href="../../css/reset.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+	</head>
+	<body>
+		<header>
+			<div class="navbar">
+				<script src="../../scripts/banner.js"></script>
+				<div id="banner-container"></div>
+				<a href="../../index.html">Home</a>
+				<a href="../projects.html">Projects</a>
+				<a href="../aboutme.html">About me</a>
+				<a href="../designrationale.html">Design Rationale</a>
+			</div>
+		</header>
+		<div class="content">
+			<div class="content">
+				<h5>iFunny Web Scraper Project</h5>
+				<br>
+				<h1>Project Summary:</h1>
+				<p>I built a python web scraper for the website iFunny as a personal project. My task involved inputting a specific username and scraping and downloading all pictures and videos from their page. The final deliverable allows the user to enter either a direct user url or a text file then scrape each url within the text file. Each link to an image or video found is saved to a text file for that user to prevent total loss if there are issues while downloading, then web scraping will not have to be repeated. The project was completed in one sitting, with updates as needed from the iFunny website refactoring how images and videos are stored on the site. The biggest challenge with web scraping from iFunny was the use of javascript based load methods in the site so that minimal images and videos would load, meaning there was an infinite scroll. This is an issue because when requesting the html for the site, it only gives the initial portion loaded in. Thus, an automated browser is required. A bot would open the site, scroll to the bottom, and repeat until the site stopped refreshing with new content.</p>
+				<br>
+				<h1>Project Analysis:</h1>
+				<p>Things that I did well in the project was optimization of how much content needs to be scrapped, with the big O notation of O(n), or linear time completion. Without proper optimization it would take O(n2) where video links need to be gathered from other pages. Another optimization involved allowing users to scrape multiple urls before writing to a file, so that the program does not stall waiting for larger images or videos to download before continuing to scrape the next url. </p>
+				<p>New skills that I learned from working on the project include the knowledge of how to perform a web scrape for an infinite scroll, use of selenium as a code controlled browser, and the performance differences between using beautiful soup 4 and selenium for similar tasks. Another new skill that I learned was how to crop images based on the url where the image is located. An old skill that I revisited was standard web scraping with libraries such as beautiful soup 4, grabbing specific tags, classes of div and other html elements to locate properties such as href and store the url found. Another revisited skill was writing to a file, both with raw text ASCII and with binary as needed for writing the actual image or video to the local drive. The majority of interacting with selenium went rather well and giving it urls to navigate to and grabbing elements that appear on the page. </p>
+				<p>One major opportunity for improvement that I identified for my next project was the possibility of giving the scraper more control of exactly what tags to look for and ignore images with a size of 1 by 1, or other social media tags. This would eliminate the need for updating or passing in alternate tags to search for videos and images from the site, no matter how the data is stored. Another similar project that I worked on could benefit from this scraping technique as well since it involved navigating to other urls based on an initial scrape, and then collected all of the necessary data from the Wiki. This would result in an O(n) runtime since the initial one just involves O(1) or constant time, then the list of urls gathered would be iterated through once.</p>
+				<br>
+				<h1>Github Link to See Project Code:</h1>
+				<a href="https://github.com/MoranARM/iFunnyMemeScraper">WebScraper Repo</a>
+			</div>
+		</div>
+		<footer>
+			Author: Alex Remington Moran<br>
+			<a href="mailto:alexremingtonm@gmail.com">alexremingtonm@gmail.com</a>
+		</footer>
+	</body>
+</html>

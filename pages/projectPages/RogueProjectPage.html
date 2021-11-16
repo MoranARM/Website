@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<title>Alex Moran Portfolio</title>
+	<meta name="description" content="A Portfolio of my programming experience">
+	<link rel="stylesheet" href="../../css/main.css">
+	<link rel="stylesheet" href="../../css/reset.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+	</head>
+	<body>
+		<header>
+			<div class="navbar">
+				<script src="../../scripts/banner.js"></script>
+				<div id="banner-container"></div>
+				<a href="../../index.html">Home</a>
+				<a href="../projects.html">Projects</a>
+				<a href="../aboutme.html">About me</a>
+				<a href="../designrationale.html">Design Rationale</a>
+			</div>
+		</header>
+		<div class="content">
+			<h5>Rogue-like Dungeon Crawler Project</h5>
+			<br>
+			<h1>Project Summary:</h1>
+			<p>I built a text based Rougue-like Dungeon Crawler in C++ as an individual class project. My task involved inputting a file containing room and item data, then parsing the data into objects using polymorphism and allowing the user to navigate the dungeon. The final deliverable allows the user to enter a text file then move between rooms and use items to escape the dungeon. The project was completed across two weeks, with file loading and room navigation done in the first week, and item addition and use completed in week two. What I found the most challenging about this project was deciding the most efficient way to handle input from the console utilizing polymorphism and object-oriented programming. Knowing what parts of the super class should be virtual and what parts should have their own implementation for the subclasses to use was somewhat difficult in trying to find a nice balance where code is reused, and not copied. Thus, I ultimately decided it was logical for the maze to call on implemented virtual methods from room, and bag (both of which are subclasses of collection) since that would allow transfer between the two locations for picking up and dropping items.</p>
+			<br>
+			<h1>Project Analysis:</h1>
+			<p>Things that I did well in the project included optimization code reuse using polymorphism. Without proper optimization there would have been a significant amount of repeated code for each item added, along with the inefficient storage of those items without implementing collection on each potential storage. These optimizations also allowed for easier manipulation of items since they were all reference-type item they could be held and manipulated within one data structure.</p>
+			<p>New skills that I learned from working on the project include how polymorphism is done in C++ with the virtual keyword and including = 0 at the end of the virtual method in the header file means that it is entirely abstract. I also learned how memory management of classes is done with destructors and deleting pointers to other variables within the destructor. The use of subclasses that extend from an abstract superclass proved useful in how items can be manipulated the same despite there being no strictly item class objects, since it makes a lot more sense to have the specific kind of item as its own class. Old skills that I revisited included the use of polymorphism with abstract classes, and taking user input as I had only previously implemented those in Java and javascript. Another revisited skill was reading from a file using fstream as an ifstream object and reading in with the getline function. </p>
+			<p>What went well included the navigation between non-euclidian rooms, especially though the use of teleportation items consumed on use. One major opportunity for improvement that I identified for my next project was altering the need for a user to upload their own dungeon file, where a default, or even multiple levels could be provided by the program. This would eliminate the need for uploading files, although it would be nice to keep as a feature, the total dungeon size would increase greatly from the multiple floors that the user needs to move between. Another similar project that I worked on could benefit from the use of loading in files as a map was a pac-man AI that I wrote in java, and javascript. The use of custom maps here would challenge the AI to be more versatile and not as dependent on the structure of the default map.</p>
+			<br>
+			<h1>Example Run:</h1>
+			<code>Welcome to Rogue
+				Please enter the path to your game configuration file<br>
+				Dungeon1.dat<br>
+				<br>
+				You are in one of the maze rooms.  A sign on the wall says, "Welcome to room 1".  Looking around you see the following items:<br>
+				MazeKey<br>
+				Teleporter2<br>
+				<br>
+				The room has doors in the following directions:<br>
+				west<br>
+				<br>
+				What would you like to do?<br>
+				take MazeKey<br>
+				<br>
+				The rogue picked up the mazekey<br>
+				<br>
+				You are in one of the maze rooms.  A sign on the wall says, "Welcome to room 1".  Looking around you see the following items:<br>
+				Teleporter2<br>
+				<br>
+				The room has doors in the following directions:<br>
+				west<br>
+				<br>
+				What would you like to do?<br>
+				take Teleporter2<br>
+				<br>
+				The rogue picked up the teleporter2<br>
+				<br>
+				You are in one of the maze rooms.  A sign on the wall says, "Welcome to room 1".  Looking around you see the following items:<br>
+				<br>
+				The room has doors in the following directions:<br>
+				west<br>
+				<br>
+				What would you like to do?<br>
+				move west<br>
+				<br>
+				<br>
+				You are in one of the maze rooms.  A sign on the wall says, "Welcome to room 0".  Looking around you see the following items:<br>
+				MazeExit<br>
+				Gold<br>
+				Diamond<br>
+				<br>
+				The room has doors in the following directions:<br>
+				east<br>
+				south<br>
+				<br>
+				What would you like to do?<br>
+			</code>
+			<br>
+			<h1>Easter Egg!</h1>
+			<code>
+				What would you like to do?<br>
+				inspect<br>
+				<br>
+				Upon closer inspection of the nearest wall, you see a crack<br>
+				you decide to climb through and see an open field<br>
+				looking around you see oxen and carraiges<br>
+				someone says to you: "Hurry up or you'll be left behind"<br>
+				you continue along the trail without food or water for days<br>
+    			##############################<br>
+   				# You have died of dysentery #<br>
+				##############################<br>
+			</code>
+		</div>
+		<footer>
+			Author: Alex Remington Moran<br>
+			<a href="mailto:alexremingtonm@gmail.com">alexremingtonm@gmail.com</a>
+		</footer>
+	</body>
+</html>
